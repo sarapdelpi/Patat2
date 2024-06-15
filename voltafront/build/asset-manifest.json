@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f1ad311b.css",
+    "main.js": "/static/js/main.efdf8d25.js",
+    "static/media/logo_volta_sin_fondo_sinletras2.png": "/static/media/logo_volta_sin_fondo_sinletras2.59a1bfae3603f0f1c01a.png",
+    "static/media/logout.png": "/static/media/logout.aa1572c9ec63db4eb375.png",
+    "index.html": "/index.html",
+    "main.f1ad311b.css.map": "/static/css/main.f1ad311b.css.map",
+    "main.efdf8d25.js.map": "/static/js/main.efdf8d25.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1ad311b.css",
+    "static/js/main.efdf8d25.js"
+  ]
+}
