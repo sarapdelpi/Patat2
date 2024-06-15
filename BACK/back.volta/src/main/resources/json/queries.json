@@ -1,0 +1,151 @@
+[
+  {
+    "id": "categoria.getall.get",
+    "query": "SELECT * FROM categoria;"
+  },
+  {
+    "id": "categoria.getcateogriapuntos.get",
+    "query": "SELECT id_categoria, tipo_categoria, puntos FROM categoria WHERE creador_categoria = 'admin';"
+  },
+  {
+    "id": "usuario.add.post.persona",
+    "query": "INSERT INTO usuario (correo_electronico, nombre, telefono, contrasena, Codigo_postal, id_tipo_usuario, credito) VALUES (?, ?, ?, ?, ?, ?, ?);"
+  },
+  {
+    "id": "usuario.add.post.institucion",
+    "query": "INSERT INTO usuario (correo_electronico, nombre, telefono, contrasena, Codigo_postal, id_tipo_usuario, credito) VALUES (?, ?, ?, ?, ?, ?, ?);"
+  },
+  {
+    "id": "usuario.login.post",
+    "query": "SELECT * FROM usuario WHERE correo_electronico = ?;"
+  },
+  {
+    "id": "usuario.institucion.getall.get",
+    "query": "SELECT nombre FROM usuario WHERE id_tipo_usuario = 2;"
+  },
+  {
+    "id": "usuario.infoinstitucion.get",
+    "query": "SELECT nombre, correo_electronico, codigo_postal, telefono FROM usuario WHERE id_tipo_usuario = 2;"
+  },
+  {
+    "id": "producto.add.post.insertarProducto",
+    "query": "INSERT INTO producto (imagen, nombre, objeto_cambio, correo_electronico, Enabled) VALUES (?, ?, ?, ?, ?);"
+  },
+  {
+    "id": "producto.add.post.categoriaIdCategoria",
+    "query": "SELECT id_categoria FROM categoria WHERE tipo_categoria = ?;"
+  },
+  {
+    "id": "producto.add.post.productoCategoria",
+    "query": "INSERT INTO productocategoria (id_producto, id_categoria, Enabled) VALUES (?, ?, true);"
+  },
+  {
+    "id": "producto.inicio.get",
+    "query": "SELECT DISTINCT(p.id_producto), p.nombre, p.objeto_cambio, p.imagen, c.tipo_categoria, c.puntos FROM producto p JOIN productocategoria pc ON p.id_producto = pc.id_producto JOIN categoria c ON pc.id_categoria = c.id_categoria WHERE p.Enabled = true AND p.correo_electronico != ?;"
+  },
+  {
+    "id": "producto.getUser.get",
+    "query": "SELECT p.id_producto, p.nombre, p.objeto_cambio, p.imagen, c.tipo_categoria, c.puntos FROM producto p JOIN productocategoria pc ON p.id_producto = pc.id_producto JOIN categoria c ON pc.id_categoria = c.id_categoria WHERE p.correo_electronico = ? AND p.Enabled = true;"
+  },
+  {
+    "id": "producto.{id_producto}.get",
+    "query": "SELECT p.id_producto, p.correo_electronico, p.nombre, p.objeto_cambio, p.imagen, c.tipo_categoria, c.puntos FROM producto p JOIN productocategoria pc ON p.id_producto = pc.id_producto JOIN categoria c ON pc.id_categoria = c.id_categoria WHERE p.id_producto = ? AND p.Enabled = true;"
+  },
+  {
+    "id": "producto.{id_producto}.delete.associations",
+    "query": "DELETE FROM productocategoria WHERE id_producto = ?;"
+  },
+  {
+    "id": "producto.{id_producto}.delete.producto",
+    "query": "DELETE FROM producto WHERE id_producto = ?;"
+  },
+  {
+    "id": "producto.vender.put.obtenerPuntos",
+    "query": "SELECT c.puntos FROM categoria c INNER JOIN productocategoria pc ON c.id_categoria = pc.id_categoria INNER JOIN producto p ON pc.id_producto = p.id_producto WHERE p.id_producto = ?;"
+  },
+  {
+    "id": "producto.vender.put.existeUsuario",
+    "query": "SELECT correo_electronico FROM usuario WHERE correo_electronico = ?;"
+  },
+  {
+    "id": "producto.vender.put.obtenerPuntosUsuario",
+    "query": "SELECT credito FROM usuario WHERE correo_electronico = ?;"
+  },
+  {
+    "id": "producto.vender.put.restarPuntosUsuario",
+    "query": "UPDATE usuario SET credito = credito - ? WHERE correo_electronico = ?;"
+  },
+  {
+    "id": "producto.vender.put.sumarPuntosUsuario",
+    "query": "UPDATE usuario SET credito = credito + ? WHERE correo_electronico = ?;"
+  },
+  {
+    "id": "producto.vender.put.quitarEnable",
+    "query": "UPDATE producto SET Enabled = false WHERE id_producto = ?;"
+  },
+  {
+    "id": "categoria.add.post.comprobar",
+    "query": "SELECT tipo_categoria FROM categoria WHERE tipo_categoria = ?;"
+  },
+  {
+    "id": "categoria.add.post.insert",
+    "query": "INSERT INTO categoria (puntos, tipo_categoria, Enabled, creador_categoria) VALUES (0, ?, true, ?);"
+  },
+  {
+    "id": "producto.buscar.nombreycategoria.get",
+    "query": "SELECT p.id_producto, p.nombre, p.objeto_cambio FROM producto p JOIN productocategoria pc ON p.id_producto = pc.id_producto JOIN categoria c ON pc.id_categoria = c.id_categoria WHERE (? = '' OR p.nombre LIKE CONCAT('%', ?, '%')) AND (? = '' OR c.tipo_categoria = ?);"
+  },
+  {
+    "id": "producto.buscar.categoria.get",
+    "query": "SELECT p.id_producto, p.nombre, p.objeto_cambio FROM producto p JOIN productocategoria pc ON p.id_producto = pc.id_producto JOIN categoria c ON pc.id_categoria = c.id_categoria WHERE (p.correo_electronico != ? and c.tipo_categoria IN (?));"
+  },
+  {
+    "id": "producto.buscar.nombre.get",
+    "query": "SELECT DISTINCT(p.id_producto), p.nombre, p.objeto_cambio, p.imagen FROM producto p JOIN productocategoria pc ON p.id_producto = pc.id_producto JOIN categoria c ON pc.id_categoria = c.id_categoria WHERE (p.nombre LIKE CONCAT('%', ?, '%') and p.correo_electronico != ?);"
+  },
+  {
+    "id": "usuario.add.post.persona.withsession",
+    "query":"INSERT INTO sesiones (id_sesion, correo_electronico) VALUES (?, ?);"
+  },
+
+  {
+    "id":"usuario.logout.post.withsession",
+    "query":"DELETE FROM sesiones WHERE id_sesion = ?;"
+  },
+  {
+    "id": "usuario.getUserInfo.get",
+    "query": "SELECT nombre, credito FROM usuario WHERE correo_electronico = ?;"
+  },
+  {
+    "id": "hash.get",
+    "query": "SELECT correo_electronico FROM sesiones WHERE id_sesion = ?;"
+  },
+  {
+    "id": "producto.favoritosadd.post",
+    "query": "INSERT INTO favorito (correo_usuario, id_producto, Enabled) VALUES (?, ?, ?);"
+  },
+  {
+    "id": "producto.favoritos.get.all",
+    "query": "SELECT p.id_producto, p.nombre, p.objeto_cambio, p.imagen, c.puntos FROM producto p INNER JOIN favorito f ON p.id_producto = f.id_producto INNER JOIN productocategoria pc ON p.id_producto = pc.id_producto INNER JOIN categoria c ON pc.id_categoria = c.id_categoria WHERE f.correo_usuario = ? and c.creador_categoria = 'admin';"
+  },
+  {
+    "id": "mensaje.add.post",
+    "query": "INSERT INTO mensaje (id_emisor, id_receptor, contenido, fecha_envio, leido) VALUES (?, ?, ?, ?, ?);"
+  },
+  {
+    "id": "mensaje.ver.get",
+    "query": "SELECT * FROM mensaje WHERE id_mensaje = ?;"
+  },
+  {
+    "id": "mensaje.verAll.get",
+    "query": "SELECT * FROM mensaje WHERE id_emisor = ? AND id_receptor = ? UNION SELECT * FROM mensaje WHERE id_emisor = ? AND id_receptor = ? ORDER BY fecha_envio;"
+  },
+  {
+    "id": "chat.verAll.get",
+    "query": "SELECT DISTINCT(u.nombre), m.id_emisor, (SELECT COUNT(*) FROM tfg.mensaje WHERE leido = 0 AND id_receptor = ?) AS num_no_leidos FROM tfg.mensaje m INNER JOIN usuario u ON m.id_emisor = u.correo_electronico WHERE m.id_receptor = ?;"
+  },
+  {
+    "id": "chat.marcarLeido.put",
+    "query": "UPDATE mensaje SET leido = 1 WHERE leido = 0 AND id_emisor = ?;"
+  }
+]
