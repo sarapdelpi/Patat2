@@ -32,7 +32,7 @@ function TransferenciaPuntos() {
         const correoPropietarioStr = encodeURIComponent(correoPropietario);
         const correoUsuarioStr = encodeURIComponent(localStorage.getItem('correo_usuario'));
 
-        const url = `http://localhost:8080/producto/vender/${idProductoStr}/${correoPropietarioStr}/${correoUsuarioStr}/${puntos}`;
+        const url = `http://imagenback:8080/producto/vender/${idProductoStr}/${correoPropietarioStr}/${correoUsuarioStr}/${puntos}`;
 
 
 

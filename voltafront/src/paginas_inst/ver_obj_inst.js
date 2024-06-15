@@ -17,7 +17,7 @@ useEffect(() => {
     const fetchDataFromAPI = async() => {
 
         try{
-            const response = await fetch(`http://localhost:8080/producto/${prod_id}` /*+ prod_id*/, {
+            const response = await fetch(`http://imagenback:8080/producto/${prod_id}` /*+ prod_id*/, {
                 method: "GET",
                 headers: {
                   "Content-Type": "application/json",

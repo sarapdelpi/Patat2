@@ -20,7 +20,7 @@ function VerObjPe() {
         const fetchDataFromAPI = async() => {
 
             try{
-                const response = await fetch(`http://localhost:8080/producto/${prod_id}` /*+ prod_id*/, {
+                const response = await fetch(`http://imagenback:8080/producto/${prod_id}` /*+ prod_id*/, {
                     method: "GET",
                     headers: {
                       "Content-Type": "application/json",
@@ -60,7 +60,7 @@ function VerObjPe() {
     
 
       try{
-          const response = await fetch(`http://localhost:8080/producto/favoritosadd`, {
+          const response = await fetch(`http://imagenback:8080/producto/favoritosadd`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

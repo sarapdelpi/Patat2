@@ -30,7 +30,7 @@ function ChatPe () {
 
 
 
-      const url = `http://localhost:8080/mensaje/add`;
+      const url = `http://imagenback:8080/mensaje/add`;
 
       try{
         const response = await fetch(url, {
@@ -74,7 +74,7 @@ function ChatPe () {
       }
 
       try{
-        const response = await fetch(`http://localhost:8080/mensaje/verAll`, {
+        const response = await fetch(`http://imagenback:8080/mensaje/verAll`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -104,7 +104,7 @@ function ChatPe () {
     const marcarLeidos = async() => {
   
       try{
-        const response = await fetch(`http://localhost:8080/mensaje/marcarLeidos/${correoPropietario}`, {
+        const response = await fetch(`http://imagenback:8080/mensaje/marcarLeidos/${correoPropietario}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",

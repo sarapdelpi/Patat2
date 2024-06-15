@@ -22,7 +22,7 @@ function PonerVentaPe() {
     useEffect(() => {
         const fetchCategorias = async () => {
             try{
-                const response = await fetch ('http://localhost:8080/categoria/getCategoriaPuntos');
+                const response = await fetch ('http://imagenback:8080/categoria/getCategoriaPuntos');
                 if (!response.ok) {
                     console.error('Error en la respuesta de la API:', response.statusText);
                     return null;
