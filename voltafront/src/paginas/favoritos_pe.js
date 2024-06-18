@@ -15,7 +15,7 @@ function FavoritosPe() {
         const getFavoritos = async(e) => {
         
           try{
-              const response = await fetch(`http://imagenback:8080/producto/get-favoritos/${localStorage.getItem('correo_usuario')}`, {
+              const response = await fetch(`http://localhost:8080/producto/get-favoritos/${localStorage.getItem('correo_usuario')}`, {
                   method: "GET",
                   headers: {
                     "Content-Type": "application/json",

@@ -13,7 +13,7 @@ function BuzonInst() {
     
     const retrieveAllChats= async () => {
       try{
-        const response = await fetch(`http://imagenback:8080/mensaje/verChats/${localStorage.getItem('correo_usuario')}`, {
+        const response = await fetch(`http://localhost:8080/mensaje/verChats/${localStorage.getItem('correo_usuario')}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

@@ -9,7 +9,7 @@ function DonarPe() {
     const [instituciones, setinstituciones] = useState([]);
 
     useEffect(() => {
-        fetch('http://imagenback:8080/usuario/institucion/getInfo')
+        fetch('http://localhost:8080/usuario/institucion/getInfo')
             .then(response => response.json())
             .then(data => setinstituciones(data));
     }, []);

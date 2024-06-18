@@ -199,7 +199,7 @@ const [signupInFormData, setSignupInFormData] = useState({
   
     try {
   
-      const response = await fetch("http://imagenback:8080/usuario/login", {
+      const response = await fetch("http://3.82.48.67:8080/usuario/login", {
         method: "POST",
        // body: formData,
         headers: {
@@ -250,7 +250,7 @@ const [signupInFormData, setSignupInFormData] = useState({
   
     try {
         
-      const response = await fetch("http://imagenback:8080/usuario/add", {
+      const response = await fetch("http://3.82.48.67:8080/usuario/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -296,7 +296,7 @@ const [signupInFormData, setSignupInFormData] = useState({
   
     try {
         
-      const response = await fetch("http://imagenback:8080/usuario/add", {
+      const response = await fetch("http://3.82.48.67:8080/usuario/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -336,7 +336,7 @@ const [signupInFormData, setSignupInFormData] = useState({
 
   const obtenerInstituciones = async () => {
     try {
-      const response = await fetch("http://imagenback:8080/usuario/institucion/getAll");
+      const response = await fetch("http://3.82.48.67:8080/usuario/institucion/getAll");
       if (!response.ok) {
         throw new Error("Error en la respuesta de la API");
       }
