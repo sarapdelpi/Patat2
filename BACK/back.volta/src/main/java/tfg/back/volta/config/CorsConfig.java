@@ -10,7 +10,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {//Método que permite la comunicación entre el front y el back
         registry.addMapping("/**")
-                .allowedOrigins("http://3.82.48.67:80/")
+                .allowedOrigins("http://3.82.48.67")
                 .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)
