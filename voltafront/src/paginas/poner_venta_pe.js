@@ -22,7 +22,7 @@ function PonerVentaPe() {
     useEffect(() => {
         const fetchCategorias = async () => {
             try{
-                const response = await fetch ('http://localhost:8080/categoria/getCategoriaPuntos');
+                const response = await fetch ('http://54.91.34.240/categoria/getCategoriaPuntos');
                 if (!response.ok) {
                     console.error('Error en la respuesta de la API:', response.statusText);
                     return null;
@@ -71,7 +71,7 @@ function PonerVentaPe() {
         formDataProducto.append('categorias_producto', listaCategorias);
 
 
-        fetch('http://localhost:8080/categoria/add', {
+        fetch('http://54.91.34.240/categoria/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -82,7 +82,7 @@ function PonerVentaPe() {
             .then((result) => {
                 console.log('Categorias creadas correctamente');
 
-                fetch('http://localhost:8080/producto/add/imagen', {
+                fetch('http://54.91.34.240/producto/add/imagen', {
                     method: 'POST',
                     body: formDataProducto
                 })

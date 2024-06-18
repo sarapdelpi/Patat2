@@ -28,7 +28,7 @@ function ChatInst () {
 
 
 
-      const url = `http://localhost:8080/mensaje/add`;
+      const url = `http://54.91.34.240/mensaje/add`;
 
       try{
         const response = await fetch(url, {
@@ -73,7 +73,7 @@ const retrieveAllMessages = async() => {
   }
 
   try{
-    const response = await fetch(`http://localhost:8080/mensaje/verAll`, {
+    const response = await fetch(`http://54.91.34.240/mensaje/verAll`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -103,7 +103,7 @@ const retrieveAllMessages = async() => {
 const marcarLeidos = async() => {
   
   try{
-    const response = await fetch(`http://localhost:8080/mensaje/marcarLeidos/${correoPropietario}`, {
+    const response = await fetch(`http://54.91.34.240/mensaje/marcarLeidos/${correoPropietario}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

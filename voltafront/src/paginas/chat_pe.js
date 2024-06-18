@@ -74,7 +74,7 @@ function ChatPe () {
       }
 
       try{
-        const response = await fetch(`http://localhost:8080/mensaje/verAll`, {
+        const response = await fetch(`http://54.91.34.240/mensaje/verAll`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -104,7 +104,7 @@ function ChatPe () {
     const marcarLeidos = async() => {
   
       try{
-        const response = await fetch(`http://localhost:8080/mensaje/marcarLeidos/${correoPropietario}`, {
+        const response = await fetch(`http://54.91.34.240/mensaje/marcarLeidos/${correoPropietario}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",

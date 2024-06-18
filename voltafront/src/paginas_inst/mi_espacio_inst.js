@@ -30,7 +30,7 @@ function MiEspacioInst() {
         return;
       }
   
-      const response = await fetch("http://localhost:8080/usuario/logout?sessionId=" + token, {
+      const response = await fetch("http://54.91.34.240/usuario/logout?sessionId=" + token, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

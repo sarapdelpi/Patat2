@@ -35,7 +35,7 @@ function MiEspacioPe() {
       // Obtén el token de autenticación de la cookie
       const token = getCookie('token'); 
       
-      const response = await fetch("http://localhost:8080/usuario/getUserInfo?sessionId=" + token, {
+      const response = await fetch("http://54.91.34.240/usuario/getUserInfo?sessionId=" + token, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ function MiEspacioPe() {
         return;
       }
   
-      const response = await fetch("http://localhost:8080/usuario/logout?sessionId=" + token, {
+      const response = await fetch("http://54.91.34.240/usuario/logout?sessionId=" + token, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -110,7 +110,7 @@ function MiEspacioPe() {
 //LLAMADA A LA API PARA ELIMINAR OBJETO EN VENTA
 const handleDelete = async (id_producto) => {
   try {
-    const response = await fetch(`http://localhost:8080/producto/${id_producto}`, {
+    const response = await fetch(`http://54.91.34.240/producto/${id_producto}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ useEffect(() => {
     
 
       try{
-          const response = await fetch(`http://localhost:8080/producto/getUser/${localStorage.getItem('correo_usuario')}`, {
+          const response = await fetch(`http://54.91.34.240/producto/getUser/${localStorage.getItem('correo_usuario')}`, {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",

@@ -25,7 +25,7 @@ function InicioInst() {
     const handleSearch = async(e) => {
 
         try{
-            const response = await fetch(`http://localhost:8080/producto/buscar`, {
+            const response = await fetch(`http://54.91.34.240/producto/buscar`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -80,7 +80,7 @@ function InicioInst() {
         const fetchTodos = async() => {
 
             try{
-                const response = await fetch(`http://localhost:8080/producto/inicio/${localStorage.getItem('correo_usuario')}`, {
+                const response = await fetch(`http://54.91.34.240/producto/inicio/${localStorage.getItem('correo_usuario')}`, {
                     method: "GET",
                     headers: {
                     "Content-Type": "application/json",
